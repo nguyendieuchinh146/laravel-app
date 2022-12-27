@@ -10,5 +10,6 @@
     <li>Model: {{ $car->model }}</li>
     <li>Produced on: {{ $car->produced_on }}</li>
 </ul>
+<a href="{{ route('cars.edit', ['id' => $car->id]) }}">click</a>
 </body>
 </html>

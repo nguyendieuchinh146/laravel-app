@@ -22,5 +22,11 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/user/profile', function () {
         echo "user";die;
     });
-    Route::get('cars/{id}', [CarController::class, 'show']);
+    Route::prefix('cars')->group(function () {
+        Route::get('/show/{id}', [CarController::class, 'show'])->name('cars.show');
+        Route::get('/add', [CarController::class, 'add'])->name('cars.add');
+        Route::get('/edit/{id}', [CarController::class, 'edit'])->name('cars.edit');
+        Route::post('/update', [CarController::class, 'update'])->name('cars.update');
+    });
+
 });
