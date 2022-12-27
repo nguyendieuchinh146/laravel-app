@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,5 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/user/profile', function () {
         echo "user";die;
     });
+    Route::get('cars/{id}', [CarController::class, 'show']);
 });
