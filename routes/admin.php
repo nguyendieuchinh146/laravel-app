@@ -27,6 +27,8 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/add', [CarController::class, 'add'])->name('cars.add');
         Route::get('/edit/{id}', [CarController::class, 'edit'])->name('cars.edit');
         Route::post('/update', [CarController::class, 'update'])->name('cars.update');
+        Route::get('/import', [CarController::class, 'importView'])->name('cars.import');
+        Route::post('/import', [CarController::class, 'import'])->name('cars.import.file');
     });
 
 });

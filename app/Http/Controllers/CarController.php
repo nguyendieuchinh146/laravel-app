@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Car;
 use Illuminate\Support\Facades\Redirect;
 use DB;
+use App\Imports\CarsImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CarController extends Controller
 {
@@ -40,5 +42,18 @@ class CarController extends Controller
         }
 
         return Redirect::route('cars.edit', ['id' => $id])->with('message', 'Car saved correctly!!!');
+    }
+    public function importView()
+    {
+        $rootPath = $_SERVER['DOCUMENT_ROOT'].env('APP_PATH');
+        $file = $rootPath.'resources/assets/xls/cars.xlsx';
+        Excel::import(new CarsImport, $file);die;
+        return view('cars.import');
+    }
+    public function import(Request $request)
+    {
+        $file = $request->file('file')->store('temp');
+        Excel::import(new CarsImport, $file);
+        return back();
     }
 }

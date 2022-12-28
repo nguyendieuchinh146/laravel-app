@@ -9,4 +9,9 @@ class Car extends Model
 {
     use HasFactory;
     public $timestamps = true;
+    protected $fillable = [
+        'make',
+        'model',
+        'produced_on'
+    ];
 }
