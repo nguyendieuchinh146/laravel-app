@@ -1,6 +1,9 @@
 @extends('layouts.master')
-<body>
-    <div class="container">
+
+@section('title', 'App - Top Page')
+
+@section('content')
+    <div class="container-fluid">
         <form method="POST" action="{{ route('cars.update') }}">
             @csrf
             <div class="form-group">
@@ -20,4 +23,8 @@
             </div>
         </form>
     </div>
-</body>
+@stop
+
+@section('scripts')
+
+@stop
