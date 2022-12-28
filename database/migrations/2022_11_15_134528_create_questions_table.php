@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
+            $table->integer('skill_id')->unsigned();
+            $table->string('title', 255);
+            $table->text('description');
+            $table->string('image', 255);
+            $table->string('audio', 255);
+            $table->string('spelling', 255);
+            $table->string('template_name', 255);
+            $table->tinyInteger('status');
+            $table->string('answer');
             $table->timestamps();
         });
     }
