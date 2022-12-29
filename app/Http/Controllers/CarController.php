@@ -14,6 +14,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class CarController extends Controller
 {
+    public function list()
+    {
+        $cars = Car::get();
+        return view('cars.list', array('cars' => $cars));
+    }
     public function show($id)
     {
         $car = Car::find($id);
@@ -30,30 +35,34 @@ class CarController extends Controller
     }
     public function update(Request $request)
     {
-        $id = $request->input('id');
-        $make = $request->input('make');
-        $model = $request->input('model');
-        $produced_on = $request->input('produced_on');
-        if($id){
-            Car::where('id', $id)->update(['make' => $make, 'model' => $model, 'produced_on' => $produced_on]);
+        $input = $request->all();
+        $make = $input['make'];
+        $model = $input['model'];
+        $produced_on = $input['produced_on'];
+        if($input['id'] !== null){
+            Car::where('id', $input['id'])->update(['make' => $make, 'model' => $model, 'produced_on' => $produced_on]);
         }else{
-//            $id = DB::table('cars')->insert(['make' => $make, 'model' => $model, 'produced_on' => now()]);
-            $car = Car::create(['make' => $make, 'model' => $model, 'produced_on' => now()]);
+            Car::create(['make' => $make, 'model' => $model, 'produced_on' => now()]);
         }
 
-        return Redirect::route('cars.edit', ['id' => $id])->with('message', 'Car saved correctly!!!');
+        return Redirect::route('cars.list')->with('message', 'Car saved correctly!!!');
     }
     public function importView()
     {
-        $rootPath = $_SERVER['DOCUMENT_ROOT'].env('APP_PATH');
-        $file = $rootPath.'resources/assets/xls/cars.xlsx';
-        Excel::import(new CarsImport, $file);die;
+//        $rootPath = $_SERVER['DOCUMENT_ROOT'].env('APP_PATH');
+//        $file = $rootPath.'resources/assets/xls/cars.xlsx';
+//        Excel::import(new CarsImport, $file);die;
         return view('cars.import');
     }
     public function import(Request $request)
     {
         $file = $request->file('file')->store('temp');
         Excel::import(new CarsImport, $file);
+        return back();
+    }
+    public function delete($id)
+    {
+        $data = Car::where('id', $id)->delete();
         return back();
     }
 }

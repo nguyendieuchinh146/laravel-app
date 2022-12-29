@@ -1,6 +1,9 @@
 @extends('layouts.master')
-<body>
-    <div class="container">
+
+@section('title', 'Car - Edit')
+
+@section('content')
+    <div class="container-fluid">
         <form method="POST" action="{{ route('cars.update') }}">
             @csrf
             <input name="id" class="form-control" type="hidden" value="{{$car->id}}">
@@ -16,9 +19,14 @@
                 <label for="title">produced_on</label>
                 <input id="produced_on" name="produced_on" class="form-control" type="text" value="{{$car->produced_on}}">
             </div>
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <button class="btn btn-success">Submit</button>
             </div>
         </form>
     </div>
-</body>
+@stop
+
+@section('scripts')
+
+@stop
+
