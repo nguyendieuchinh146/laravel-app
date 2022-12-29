@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
+use App\Http\Admin\Controllers\CourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,15 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/import', [CarController::class, 'importView'])->name('cars.import');
         Route::post('/import', [CarController::class, 'import'])->name('cars.import.file');
         Route::get('/delete/{id}', [CarController::class, 'delete'])->name('cars.delete');
+    });
+
+    Route::prefix('course')->group(function () {
+        Route::get('/list', [CourseController::class, 'list'])->name('admin.course.list');
+        Route::get('/show/{id}', [CourseController::class, 'show'])->name('admin.course.show');
+        Route::get('/add', [CourseController::class, 'add'])->name('admin.course.add');
+        Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('admin.course.edit');
+        Route::post('/update', [CourseController::class, 'update'])->name('admin.course.update');
+        Route::get('/delete/{id}', [CourseController::class, 'delete'])->name('admin.course.delete');
     });
 
 });

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->increments('id');
             $table->string('code', 255);
             $table->text('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->string('image');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->nullable();
             $table->integer('course_group_id');
             $table->timestamps();
         });

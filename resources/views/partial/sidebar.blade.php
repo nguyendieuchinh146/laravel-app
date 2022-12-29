@@ -17,10 +17,10 @@
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('../resources/themes/admin/icons/svg/free.svg#cil-drop') }}"></use>
                 </svg> Cars</a></li>
-        <li class="nav-item"><a class="nav-link" href="typography.html">
+        <li class="nav-item"><a class="nav-link" href="{{route('admin.course.list')}}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('../resources/themes/admin/icons/svg/free.svg#cil-pencil') }}"></use>
-                </svg> Typography</a></li>
+                </svg> Course</a></li>
         <li class="nav-title">Components</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
