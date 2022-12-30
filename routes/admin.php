@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Admin\Controllers\CourseController;
 use App\Http\Admin\Controllers\LessonController;
+use App\Http\Admin\Controllers\SkillController;
+use App\Http\Admin\Controllers\QuestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +53,14 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/edit/{id}', [LessonController::class, 'edit'])->name('admin.lesson.edit');
         Route::post('/update', [LessonController::class, 'update'])->name('admin.lesson.update');
         Route::get('/delete/{id}', [LessonController::class, 'delete'])->name('admin.lesson.delete');
+    });
+
+    Route::prefix('skill')->group(function () {
+        Route::get('/list/{lesson_id}', [SkillController::class, 'listByLesson'])->name('admin.skill.listByLesson');
+    });
+
+    Route::prefix('question')->group(function () {
+        Route::get('/list/{skill_id}', [QuestionController::class, 'listBySkill'])->name('admin.question.listBySkill');
     });
 
 });

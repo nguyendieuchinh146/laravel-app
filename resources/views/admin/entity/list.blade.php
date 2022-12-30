@@ -29,6 +29,9 @@
                         @endif
                     @endforeach
                     <td>
+                        @if($prefix === 'lesson')
+                            <a href="{{route('admin.skill.listByLesson', ['lesson_id' => $record->id])}}">Skills</a>
+                        @endif
                         <a href="{{route('admin.'.$prefix.'.edit', ['id' => $record->id])}}">Edit</a>
                         <a  href="#" onclick='confirm("Are You Sure Want to Delete?") ? window.location.href = "{{route('admin.'.$prefix.'.delete', ['id' => $record->id])}}" : "";'>Delete</a>
                     </td>
