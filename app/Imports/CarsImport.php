@@ -14,10 +14,16 @@ class CarsImport implements ToModel
     */
     public function model(array $row)
     {
-        return new Car([
-            'make' => $row[0],
-            'model' => $row[1],
-            'produced_on' => now()
-        ]);
+//        return new Car([
+//            'make' => $row[0],
+//            'model' => $row[1],
+//            'produced_on' => now()
+//        ]);
+    }
+    public function collection(Collection $rows){
+
+    }
+    public function array(Array $rows){
+
     }
 }
