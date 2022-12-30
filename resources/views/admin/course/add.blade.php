@@ -16,6 +16,7 @@
             @endif
             @csrf
             <input name="course_group_id" class="form-control" type="hidden" value="1">
+            <input name="id" class="form-control" type="hidden" value="">
             <div class="form-group">
                 <label for="code">Code</label>
                 <input id="code" name="code" class="form-control" type="text" value="">
