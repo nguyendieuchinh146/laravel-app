@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarController;
 use App\Http\Admin\Controllers\CourseController;
+use App\Http\Admin\Controllers\LessonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,6 +42,15 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/edit/{id}', [CourseController::class, 'edit'])->name('admin.course.edit');
         Route::post('/update', [CourseController::class, 'update'])->name('admin.course.update');
         Route::get('/delete/{id}', [CourseController::class, 'delete'])->name('admin.course.delete');
+    });
+
+    Route::prefix('lesson')->group(function () {
+        Route::get('/list', [LessonController::class, 'list'])->name('admin.lesson.list');
+        Route::get('/show/{id}', [LessonController::class, 'show'])->name('admin.lesson.show');
+        Route::get('/add', [LessonController::class, 'add'])->name('admin.lesson.add');
+        Route::get('/edit/{id}', [LessonController::class, 'edit'])->name('admin.lesson.edit');
+        Route::post('/update', [LessonController::class, 'update'])->name('admin.lesson.update');
+        Route::get('/delete/{id}', [LessonController::class, 'delete'])->name('admin.lesson.delete');
     });
 
 });

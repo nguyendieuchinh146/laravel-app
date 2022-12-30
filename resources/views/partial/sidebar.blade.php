@@ -21,6 +21,10 @@
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('../resources/themes/admin/icons/svg/free.svg#cil-pencil') }}"></use>
                 </svg> Course</a></li>
+        <li class="nav-item mt-auto"><a class="nav-link" href="{{route('admin.lesson.list')}}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('../resources/themes/admin/icons/svg/free.svg#cil-description') }}"></use>
+                </svg> Lesson</a></li>
         <li class="nav-title">Components</li>
         <li class="nav-group"><a class="nav-link nav-group-toggle" href="#">
                 <svg class="nav-icon">
@@ -123,10 +127,6 @@
                         </svg> Error 500</a></li>
             </ul>
         </li>
-        <li class="nav-item mt-auto"><a class="nav-link" href="https://coreui.io/docs/templates/installation/" target="_blank">
-                <svg class="nav-icon">
-                    <use xlink:href="{{ asset('../resources/themes/admin/icons/svg/free.svg#cil-description') }}"></use>
-                </svg> Docs</a></li>
         <li class="nav-item"><a class="nav-link nav-link-danger" href="https://coreui.io/pro/" target="_top">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('../resources/themes/admin/icons/svg/free.svg#cil-layers') }}"></use>

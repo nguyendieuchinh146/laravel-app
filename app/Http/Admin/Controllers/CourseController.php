@@ -12,6 +12,7 @@ use DB;
 
 class CourseController extends AdminController
 {
+    public $title = 'Course';
     public function list()
     {
         $courses = Course::get();

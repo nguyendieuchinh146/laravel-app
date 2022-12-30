@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('lessons', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('courses_id')->unsigned();
+            $table->integer('course_id')->unsigned();
             $table->string('code', 50);
             $table->string('image');
             $table->text('title');
-            $table->text('description');
-            $table->tinyInteger('status');
+            $table->text('description')->nullable();
+            $table->tinyInteger('status')->nullable();
             $table->timestamps();
         });
     }

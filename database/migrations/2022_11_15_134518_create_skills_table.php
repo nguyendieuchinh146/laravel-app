@@ -19,10 +19,10 @@ return new class extends Migration
             $table->integer('lesson_id')->unsigned();
             $table->string('code', 50);
             $table->text('title');
-            $table->text('description');
-            $table->string('image');
-            $table->tinyInteger('status');
-            $table->string('type', 255);
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->tinyInteger('status')->nullable();
+            $table->string('type', 50)->nullable();
             $table->timestamps();
         });
     }
