@@ -17,6 +17,7 @@ class Question extends Model
         'audio',
         'spelling',
         'template_name',
+        'translate',
         'status',
         'answer',
     ];
